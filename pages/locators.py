@@ -8,3 +8,11 @@ class MainPageLocators:
 class LoginPageLocators:
     LOGIN_FORM = (By.CSS_SELECTOR, '#login_form')
     REGISTER_FORM = (By.CSS_SELECTOR, '#register_form')
+
+
+class ProductPageLocators:
+    ADD_TO_CART_BUTTON = (By.CSS_SELECTOR, '.btn-add-to-basket')
+    PRODUCT_NAME = (By.CSS_SELECTOR, '.product_main h1')
+    PRODUCT_PRICE = (By.CSS_SELECTOR, '.product_main .price_color')
+    ADDED_SUCCESSFULLY_TO_CART_MESSAGE = (By.CSS_SELECTOR, '#messages :first-child .alertinner')
+    CART_TOTAL_MESSAGE = (By.CSS_SELECTOR, '#messages .alert-info .alertinner')
