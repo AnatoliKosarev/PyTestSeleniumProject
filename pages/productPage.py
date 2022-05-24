@@ -21,7 +21,7 @@ class ProductPage(BasePage):
     def should_be_added_to_cart_success_message_with_correct_item_name(self):
         added_to_cart_message = self.browser.find_element(*ProductPageLocators.ADDED_SUCCESSFULLY_TO_CART_MESSAGE).text
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
-        assert added_to_cart_message and product_name in added_to_cart_message, (
+        assert added_to_cart_message == product_name, (
             'Product name is incorrect in Product added successfully message')
 
     def should_be_correct_cart_total_message(self):
@@ -35,5 +35,13 @@ class ProductPage(BasePage):
     def should_be_cart_total_message_with_correct_total_price(self):
         total_cart_message = self.browser.find_element(*ProductPageLocators.CART_TOTAL_MESSAGE).text
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
-        assert total_cart_message and product_price in total_cart_message, (
+        assert total_cart_message == product_price, (
             'Product price is incorrect in Total cart message')
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.ADDED_SUCCESSFULLY_TO_CART_MESSAGE), (
+            'Success message should not be shown, but is present on the page')
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared_element(*ProductPageLocators.ADDED_SUCCESSFULLY_TO_CART_MESSAGE), (
+            'Success message should disappear, but is present on the page')

@@ -1,3 +1,4 @@
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
@@ -12,3 +13,5 @@ def wait_until_element_is_visible(browser, locator, timeout=TIMEOUT):
 def wait_until_element_is_clickable(browser, locator, timeout=TIMEOUT):
     element = WebDriverWait(browser, timeout).until(ec.element_to_be_clickable(locator))
     return element
+
+

@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class MainPageLocators:
+class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
 
 
@@ -14,5 +14,5 @@ class ProductPageLocators:
     ADD_TO_CART_BUTTON = (By.CSS_SELECTOR, '.btn-add-to-basket')
     PRODUCT_NAME = (By.CSS_SELECTOR, '.product_main h1')
     PRODUCT_PRICE = (By.CSS_SELECTOR, '.product_main .price_color')
-    ADDED_SUCCESSFULLY_TO_CART_MESSAGE = (By.CSS_SELECTOR, '#messages :first-child .alertinner')
-    CART_TOTAL_MESSAGE = (By.CSS_SELECTOR, '#messages .alert-info .alertinner')
+    ADDED_SUCCESSFULLY_TO_CART_MESSAGE = (By.CSS_SELECTOR, '#messages :first-child .alertinner strong')
+    CART_TOTAL_MESSAGE = (By.CSS_SELECTOR, '#messages .alert-info .alertinner strong')
