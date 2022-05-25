@@ -20,5 +20,5 @@ class ProductPageLocators:
 
 
 class CartPageLocators:
-    EMPTY_CART_MESSAGE = (By.XPATH, '//p[contains(text(), \'Your basket is empty.\')]')
+    EMPTY_CART_MESSAGE = (By.CSS_SELECTOR, 'p>a[href^="/"]')
     CART_ITEMS_FORM = (By.CSS_SELECTOR, '.basket-items')
