@@ -1,5 +1,6 @@
 import pytest
 
+from pages.basketPage import BasketPage
 from pages.loginPage import LoginPage
 from pages.productPage import ProductPage
 from pages.locators import ProductPageLocators
@@ -58,3 +59,12 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     page.open()
     page.add_product_to_cart()
     page.is_disappeared_element(*ProductPageLocators.ADDED_SUCCESSFULLY_TO_CART_MESSAGE)
+
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/'
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.select_view_cart_button()
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.should_be_empty()

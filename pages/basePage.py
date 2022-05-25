@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as ec
 
 from pages.locators import BasePageLocators
 from utils.conf import TIMEOUT
+from utils.waits import wait_until_element_is_clickable
 
 
 class BasePage:
@@ -62,3 +63,7 @@ class BasePage:
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'Login link is missing'
+
+    def select_view_cart_button(self):
+        view_cart_button = wait_until_element_is_clickable(self.browser, BasePageLocators.VIEW_CART_BUTTON)
+        view_cart_button.click()
