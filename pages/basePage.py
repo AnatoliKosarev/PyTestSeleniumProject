@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as ec
 
 from pages.locators import BasePageLocators
 from utils.conf import TIMEOUT
-from utils.waits import wait_until_element_is_clickable
+from utils.waits import wait_until_element_is_clickable, wait_for_element_to_be_present
 
 
 class BasePage:
@@ -67,3 +67,7 @@ class BasePage:
     def select_view_cart_button(self):
         view_cart_button = wait_until_element_is_clickable(self.browser, BasePageLocators.VIEW_CART_BUTTON)
         view_cart_button.click()
+
+    def should_be_authorised_user(self):
+        assert wait_for_element_to_be_present(self.browser, BasePageLocators.USER_ICON), (
+            'User icon is not shown, probably unauthorised user.')

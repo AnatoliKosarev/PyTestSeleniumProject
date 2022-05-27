@@ -4,11 +4,16 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
     VIEW_CART_BUTTON = (By.CSS_SELECTOR, '.btn-group a[href*="basket"]')
+    USER_ICON = (By.CSS_SELECTOR, '.icon-user')
 
 
 class LoginPageLocators:
     LOGIN_FORM = (By.CSS_SELECTOR, '#login_form')
     REGISTER_FORM = (By.CSS_SELECTOR, '#register_form')
+    REGISTER_EMAIL_FIELD = (By.CSS_SELECTOR, 'input[name="registration-email"]')
+    REGISTER_PASSWORD_FIELD = (By.CSS_SELECTOR, 'input[name ="registration-password1"]')
+    REGISTER_CONFIRM_PASSWORD_FIELD = (By.CSS_SELECTOR, 'input[name ="registration-password2"]')
+    REGISTER_SUBMIT_BUTTON = (By.CSS_SELECTOR, 'button[name="registration_submit"]')
 
 
 class ProductPageLocators:

@@ -10,6 +10,10 @@ class ProductPage(BasePage):
         add_to_cart_btn.click()
         self.solve_quiz_and_get_code()
 
+    def add_product_to_cart_without_quiz(self):
+        add_to_cart_btn = wait_until_element_is_clickable(self.browser, ProductPageLocators.ADD_TO_CART_BUTTON)
+        add_to_cart_btn.click()
+
     def should_be_correct_added_to_cart_success_message(self):
         self.should_be_added_to_cart_success_message()
         self.should_be_added_to_cart_success_message_with_correct_item_name()
