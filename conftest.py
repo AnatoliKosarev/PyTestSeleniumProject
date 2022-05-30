@@ -16,6 +16,8 @@ def browser(request):
     if browser_name == 'chrome':
         options = Options()
         options.add_experimental_option('prefs', {'intl.accept_languages': user_locale})
+        # options.add_argument('--headless')
+        # options.add_argument('--window-size=1920x1080')
         browser = webdriver.Chrome(options=options)
     elif browser_name == 'firefox':
         fp = webdriver.FirefoxProfile()
